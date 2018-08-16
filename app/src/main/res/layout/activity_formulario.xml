@@ -140,6 +140,12 @@
             android:text="@string/txtCorrida"
             style="@style/estiloCampos"/>
 
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/txtSalvar"
+            android:layout_gravity="center"/>
+
     </LinearLayout>
 
 

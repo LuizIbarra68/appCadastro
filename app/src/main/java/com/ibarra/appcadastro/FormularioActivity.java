@@ -29,6 +29,18 @@ public class FormularioActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_formulario);
 
+        etNome = (EditText) findViewById(R.id.etNome);
+        etTelefone = (EditText) findViewById(R.id.etTelefone);
+        etEmail = (EditText) findViewById(R.id.etEmail);
+
+        cbCaminhada = (CheckBox) findViewById(R.id.cbCaminhada);
+        cbCorrida = (CheckBox) findViewById(R.id.cbCorrida);
+
+        rbFeminino = (RadioButton) findViewById(R.id.rbFeminino);
+        rbMasculino = (RadioButton) findViewById(R.id.rbMasculino);
+
+        btnSalvar = (Button) findViewById(R.id.btnSalvar);
+
 
         spinnerCidade = (Spinner) findViewById(R.id.spCidade);
         spinnerEstado = (Spinner) findViewById(R.id.spEstado);
@@ -54,13 +66,15 @@ public class FormularioActivity extends AppCompatActivity {
     }
 
     private void carregarCidades(){
-        String[] AC = {
-                getResources().getString(R.string.selecione), "Rio Branco"};
-         String[] RS = {getResources().getString(R.string.selecione), "Alvorada",
+        String selecione = getResources().getString(R.string.selecione);
+        String selcioneEstado = getResources().getString(R.string.selecioneEstado);
+
+         String[] AC = {selecione, "Rio Branco"};
+         String[] RS = {selecione, "Alvorada",
                 "Canoas", "Capão da Canoa", "Porto Alegre", "Viamão"};
-          String[] SC = { getResources().getString(R.string.selecione), "Blumenau", "Florianopolis",
+          String[] SC = { selecione, "Blumenau", "Florianopolis",
                 "Passo de Torres", "Praia Grande"};
-          String[] PR = { getResources().getString(R.string.selecione), "Curitiba", "Foz do Iguaçu",
+          String[] PR = { selecione, "Curitiba", "Foz do Iguaçu",
                 "Maringa"};
 
         int posicao = spinnerEstado.getSelectedItemPosition();
@@ -68,8 +82,7 @@ public class FormularioActivity extends AppCompatActivity {
         switch (posicao){
             case 0:
                 spinnerCidade.setEnabled(false);
-                listaCidades = new String[]{
-                        getResources().getString(R.string.selecioneEstado)};
+                listaCidades = new String[]{ selcioneEstado };
 
                 break;
             case 16:
@@ -94,9 +107,7 @@ public class FormularioActivity extends AppCompatActivity {
 
              default:
                  spinnerCidade.setEnabled(true);
-                 listaCidades = new String[]{
-                         getResources().getString(R.string.selecione)
-                 };
+                 listaCidades = new String[]{ selecione };
                  break;
 
         }
@@ -118,12 +129,22 @@ public class FormularioActivity extends AppCompatActivity {
             finish();
         }
         if ( item.getItemId() == R.id._menu_limpar ){
-            // implementar o limpar();
+             limpar();
         }
         return super.onOptionsItemSelected(item);
     }
 
     private void limpar(){
 
+    etNome.setText("");
+    etTelefone.setText("");
+    etEmail.setText("");
+
+    cbCaminhada.setChecked(false);
+    cbCorrida.setChecked(false);
+    rbMasculino.setChecked(false);
+    rbFeminino.setChecked(false);
+
+    spinnerEstado.setSelection( 0 );
     }
 }

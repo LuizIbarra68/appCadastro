@@ -171,6 +171,13 @@
             android:text="@string/txtCorrida"
             style="@style/estiloCampos"/>
     </LinearLayout>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="SALVAR"
+            android:id="@+id/btnSalvar"
+            />
     </LinearLayout>
 
 
